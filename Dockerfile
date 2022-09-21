@@ -9,5 +9,6 @@ RUN pacman -Syu --noconfirm
 RUN pacman -S git --noconfirm
 COPY --from=builder /home/rust/target/release/loc-server . 
 ENV PORT 8080
+ENV RUST_LOG info
 EXPOSE 8080
 ENTRYPOINT [ "./loc-server" ]
